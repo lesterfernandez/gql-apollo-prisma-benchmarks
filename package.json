@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node benchmark.js",
+    "startDB": "docker-compose -f lib/docker-compose.yml up -d && yarn prisma migrate dev && yarn prisma db seed",
     "compare": "node benchmark.js compare --",
     "test": "standard | snazzy",
     "standard": "standard | snazzy",
     "metrics:run": "node metrics/startup.js",
     "metrics:summary": "node metrics/process-results.js -u"
+  },
+  "prisma": {
+    "schema": "lib/prisma/schema.prisma",
+    "seed": "node lib/prisma/seed.js"
   },
   "bin": {
     "benchmark": "./benchmark.js"
@@ -26,6 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "@leizm/web": "^2.7.0",
+    "@prisma/client": "^3.13.0",
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
     "benchmark": "^2.1.4",
@@ -40,10 +46,12 @@
     "hide-powered-by": "^1.0.0",
     "inquirer": "^8.0.0",
     "koa": "^2.7.0",
-    "ora": "^5.4.1"
+    "ora": "^5.4.1",
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "prettier": "^2.6.2",
+    "prisma": "^3.13.0",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0"
   }

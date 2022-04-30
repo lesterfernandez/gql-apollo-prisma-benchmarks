@@ -19,12 +19,14 @@ benchmark [arguments (optional)]
 
 * __Machine:__ linux x64 | 16 vCPUs | 47.0GB Mem
 * __Node:__ `v16.15.0`
-* __Run:__ Fri Apr 29 2022 14:20:29 GMT-0400 (Eastern Daylight Time)
+* __Run:__ Sat Apr 30 2022 10:37:29 GMT-0400 (Eastern Daylight Time)
 * __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
 
-|         | Requests/s | Latency | Throughput/Mb |
-| :--     | --:        | :-:     | --:           |
-| bare    | 49992.0    | 0.01    | 8.92          |
-| fastify | 47360.0    | 0.01    | 8.45          |
-| koa     | 43312.0    | 0.01    | 7.73          |
-| express | 13324.0    | 0.03    | 2.38          |
+|                | Requests/s | Latency | Throughput/Mb |
+| :--            | --:        | :-:     | --:           |
+| http+pg        | 22168.0    | 0.01    | 3.95          |
+| koa+pg         | 19864.0    | 0.02    | 3.54          |
+| http+prisma    | 8550.0     | 0.58    | 1.52          |
+| express+pg     | 7874.7     | 0.91    | 1.89          |
+| koa+prisma     | 7550.0     | 1.02    | 1.47          |
+| express+prisma | 5068.7     | 1.28    | 1.22          |
