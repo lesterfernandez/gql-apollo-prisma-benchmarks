@@ -1,5 +1,6 @@
 const app = require("express")();
-const prisma = require("../lib/prisma/client");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 // app.disable("etag");
 // app.disable("x-powered-by");

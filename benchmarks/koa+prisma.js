@@ -1,7 +1,8 @@
 "use strict";
 
 const Koa = require("koa");
-const prisma = require("../lib/prisma/client");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 const app = new Koa();
 
