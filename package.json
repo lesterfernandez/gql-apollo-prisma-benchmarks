@@ -4,7 +4,7 @@
   "description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
   "main": "index.js",
   "scripts": {
-    "start": "node benchmark.js",
+    "start": "NODE_ENV=production node benchmark.js",
     "initDB": "docker-compose -f lib/docker-compose.yml up -d && yarn prisma migrate dev && yarn prisma db seed",
     "startDB": "docker-compose -f lib/docker-compose.yml up -d ",
     "compare": "node benchmark.js compare --",

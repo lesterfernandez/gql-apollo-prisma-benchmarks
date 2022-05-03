@@ -23,7 +23,6 @@ const root = {
 };
 
 const app = express();
-app.disable("x-powered-by");
 app.use(
   "/",
   graphqlHTTP({

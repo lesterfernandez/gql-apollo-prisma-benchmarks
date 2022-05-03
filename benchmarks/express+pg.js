@@ -1,8 +1,7 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
 
 const pool = require("../lib/pg");
-
-app.disable("x-powered-by");
 
 app.get("/", async (_, res) => {
   const str = (await pool.query('SELECT "randomString" from "Data"'))

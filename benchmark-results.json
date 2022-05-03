@@ -1,62 +1,62 @@
 [
   {
     "name": "apollo-server-koa+prisma",
-    "requests": "43413.8",
-    "latency": "1.28",
-    "throughput": "7.41"
+    "requests": "33704.0",
+    "latency": "0.51",
+    "throughput": "5.75"
   },
   {
     "name": "http+pg",
-    "requests": "21654.5",
-    "latency": "2.89",
-    "throughput": "3.86"
+    "requests": "21556.8",
+    "latency": "0.81",
+    "throughput": "3.84"
   },
   {
     "name": "koa+pg",
-    "requests": "18521.5",
-    "latency": "3.68",
+    "requests": "18491.2",
+    "latency": "1.18",
     "throughput": "3.30"
   },
   {
     "name": "http+prisma",
-    "requests": "10234.4",
-    "latency": "6.83",
-    "throughput": "1.82"
-  },
-  {
-    "name": "apollo-server-express+prisma",
-    "requests": "9580.7",
-    "latency": "7.42",
-    "throughput": "2.41"
-  },
-  {
-    "name": "apollo-server+prisma",
-    "requests": "9306.5",
-    "latency": "7.70",
-    "throughput": "2.34"
-  },
-  {
-    "name": "express+pg",
-    "requests": "8605.8",
-    "latency": "8.11",
-    "throughput": "1.88"
+    "requests": "13804.0",
+    "latency": "1.72",
+    "throughput": "2.46"
   },
   {
     "name": "koa+prisma",
-    "requests": "8255.1",
-    "latency": "8.58",
-    "throughput": "1.61"
+    "requests": "11888.8",
+    "latency": "1.98",
+    "throughput": "2.31"
+  },
+  {
+    "name": "apollo-server+prisma",
+    "requests": "8264.4",
+    "latency": "3.17",
+    "throughput": "2.08"
+  },
+  {
+    "name": "apollo-server-express+prisma",
+    "requests": "8160.8",
+    "latency": "3.16",
+    "throughput": "2.23"
+  },
+  {
+    "name": "express+pg",
+    "requests": "8127.2",
+    "latency": "3.21",
+    "throughput": "1.95"
   },
   {
     "name": "express-graphql+prisma",
-    "requests": "7765.3",
-    "latency": "9.12",
-    "throughput": "2.03"
+    "requests": "6668.4",
+    "latency": "3.93",
+    "throughput": "1.89"
   },
   {
     "name": "express+prisma",
-    "requests": "5625.2",
-    "latency": "12.81",
-    "throughput": "1.23"
+    "requests": "6666.0",
+    "latency": "3.96",
+    "throughput": "1.60"
   }
 ]

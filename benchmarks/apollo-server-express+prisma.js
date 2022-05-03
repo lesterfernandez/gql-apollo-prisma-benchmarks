@@ -11,7 +11,6 @@ const prisma = new PrismaClient();
 
 (async () => {
   const app = express();
-  app.disable("x-powered-by");
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
     context: { prisma },

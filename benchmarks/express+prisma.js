@@ -1,8 +1,8 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
+
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
-
-app.disable("x-powered-by");
 
 app.get("/", async (_, res) => {
   const str = await prisma.data.findFirst({
