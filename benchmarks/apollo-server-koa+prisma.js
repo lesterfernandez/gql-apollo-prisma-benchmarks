@@ -1,16 +1,16 @@
-import { PrismaClient } from "@prisma/client";
-import {
+const { ApolloServer } = require("apollo-server-koa");
+const http = require("http");
+const Koa = require("koa");
+const {
   ApolloServerPluginDrainHttpServer,
   gql,
-} from "apollo-server-core";
-import { ApolloServer } from "apollo-server-express";
-import express from "express";
-import http from "http";
+} = require("apollo-server-core");
+
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 (async () => {
-  const app = express();
-  const httpServer = http.createServer(app);
+  const httpServer = http.createServer();
   const server = new ApolloServer({
     context: { prisma },
     typeDefs: gql`
@@ -21,7 +21,7 @@ const prisma = new PrismaClient();
     resolvers: {
       Query: {
         hello: async (_, __, { prisma }) => {
-          const str = await (prisma as PrismaClient).data.findFirst({
+          const str = await prisma.data.findFirst({
             select: {
               randomString: true,
             },
@@ -32,9 +32,12 @@ const prisma = new PrismaClient();
     },
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
+
   await server.start();
-  server.applyMiddleware({ app, path: "/" });
-  await new Promise<void>(resolve =>
+  const app = new Koa();
+  server.applyMiddleware({ app });
+  httpServer.on("request", app.callback());
+  await new Promise(resolve =>
     httpServer.listen({ port: 3000 }, resolve)
   );
 })();

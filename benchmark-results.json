@@ -1,1 +1,62 @@
-[{"name":"http+pg","requests":"23010.7","latency":"0.01","throughput":"4.10"},{"name":"koa+pg","requests":"18237.3","latency":"0.02","throughput":"3.25"},{"name":"http+prisma","requests":"8926.0","latency":"0.25","throughput":"1.59"},{"name":"apollo-server+prisma","requests":"8376.7","latency":"0.16","throughput":"2.11"},{"name":"apollo-server-express+prisma","requests":"8140.7","latency":"0.20","throughput":"2.23"},{"name":"express+pg","requests":"8047.3","latency":"0.35","throughput":"1.93"},{"name":"koa+prisma","requests":"7272.7","latency":"0.52","throughput":"1.41"},{"name":"express+prisma","requests":"4755.3","latency":"1.11","throughput":"1.14"}]
+[
+  {
+    "name": "apollo-server-koa+prisma",
+    "requests": "43413.8",
+    "latency": "1.28",
+    "throughput": "7.41"
+  },
+  {
+    "name": "http+pg",
+    "requests": "21654.5",
+    "latency": "2.89",
+    "throughput": "3.86"
+  },
+  {
+    "name": "koa+pg",
+    "requests": "18521.5",
+    "latency": "3.68",
+    "throughput": "3.30"
+  },
+  {
+    "name": "http+prisma",
+    "requests": "10234.4",
+    "latency": "6.83",
+    "throughput": "1.82"
+  },
+  {
+    "name": "apollo-server-express+prisma",
+    "requests": "9580.7",
+    "latency": "7.42",
+    "throughput": "2.41"
+  },
+  {
+    "name": "apollo-server+prisma",
+    "requests": "9306.5",
+    "latency": "7.70",
+    "throughput": "2.34"
+  },
+  {
+    "name": "express+pg",
+    "requests": "8605.8",
+    "latency": "8.11",
+    "throughput": "1.88"
+  },
+  {
+    "name": "koa+prisma",
+    "requests": "8255.1",
+    "latency": "8.58",
+    "throughput": "1.61"
+  },
+  {
+    "name": "express-graphql+prisma",
+    "requests": "7765.3",
+    "latency": "9.12",
+    "throughput": "2.03"
+  },
+  {
+    "name": "express+prisma",
+    "requests": "5625.2",
+    "latency": "12.81",
+    "throughput": "1.23"
+  }
+]
