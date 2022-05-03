@@ -41,5 +41,5 @@ Then run the following commands: (replace "yarn" with "npm run" where applicable
 | koa+prisma                   | N/A | N/A | N/A |
 | koa+pg                       | N/A | N/A | N/A |
 
-Koa kept dropping the database connections, so the results were innaccurate.
+Koa kept dropping the database connections, so the results were inaccurate.
 I'm not sure if I did something wrong or if koa just sucks
