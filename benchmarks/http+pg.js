@@ -1,10 +1,16 @@
-"use strict";
-
-const pool = require("../lib/pg");
+const { Client } = require("pg");
 
 const server = require("http").createServer(async (_, res) => {
-  const str = (await pool.query('SELECT "randomString" from "Data"'))
-    .rows[0].randomString;
+  const client = new Client({
+    connectionString:
+      "postgresql://postgres:postgres@localhost:5001/prisma",
+  });
+  await client.connect();
+  const query = await client.query(
+    'SELECT "randomString" from "Data"'
+  );
+  const str = query.rows[0].randomString;
+  await client.end();
   res.setHeader("content-type", "application/json; charset=utf-8");
   res.end(JSON.stringify({ hello: str }));
 });

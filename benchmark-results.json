@@ -1,80 +1,110 @@
 [
   {
     "name": "fastify+pg",
-    "requests": "70240.0",
+    "requests": "38992.0",
     "latency": "0.01",
-    "throughput": "16.68"
+    "throughput": "9.26"
   },
   {
     "name": "fastify+prisma",
-    "requests": "67843.2",
+    "requests": "36952.0",
     "latency": "0.01",
-    "throughput": "16.11"
+    "throughput": "8.78"
+  },
+  {
+    "name": "apollo-server-koa+prisma",
+    "requests": "33704.0",
+    "latency": "0.51",
+    "throughput": "5.75"
   },
   {
     "name": "apollo-server-fastify+prisma+nexus",
-    "requests": "36528.0",
+    "requests": "19748.0",
     "latency": "0.01",
-    "throughput": "8.26"
-  },
-  {
-    "name": "apollo-server-fastify+prisma",
-    "requests": "35920.0",
-    "latency": "0.01",
-    "throughput": "8.12"
-  },
-  {
-    "name": "express+pg",
-    "requests": "21902.4",
-    "latency": "0.04",
-    "throughput": "8.58"
-  },
-  {
-    "name": "express+prisma",
-    "requests": "21816.0",
-    "latency": "0.04",
-    "throughput": "8.55"
-  },
-  {
-    "name": "apollo-server+prisma",
-    "requests": "16804.0",
-    "latency": "0.09",
-    "throughput": "4.23"
-  },
-  {
-    "name": "apollo-server+prisma+nexus",
-    "requests": "16728.8",
-    "latency": "0.09",
-    "throughput": "4.21"
-  },
-  {
-    "name": "apollo-server-express+prisma",
-    "requests": "16290.4",
-    "latency": "0.10",
     "throughput": "4.46"
   },
   {
-    "name": "apollo-server-express+prisma+nexus",
-    "requests": "16274.4",
-    "latency": "0.10",
-    "throughput": "4.45"
+    "name": "apollo-server-fastify+prisma",
+    "requests": "19724.0",
+    "latency": "0.01",
+    "throughput": "4.46"
   },
   {
-    "name": "express-graphql+prisma",
-    "requests": "14255.2",
-    "latency": "0.15",
-    "throughput": "4.04"
+    "name": "koa+pg",
+    "requests": "18491.2",
+    "latency": "1.18",
+    "throughput": "3.30"
   },
   {
-    "name": "http+pg",
-    "requests": "6814.8",
-    "latency": "1.03",
-    "throughput": "1.22"
+    "name": "express+pg",
+    "requests": "13054.0",
+    "latency": "0.02",
+    "throughput": "5.12"
+  },
+  {
+    "name": "express+prisma",
+    "requests": "12310.0",
+    "latency": "0.02",
+    "throughput": "4.82"
+  },
+  {
+    "name": "koa+prisma",
+    "requests": "11888.8",
+    "latency": "1.98",
+    "throughput": "2.31"
   },
   {
     "name": "http+prisma",
-    "requests": "5326.8",
-    "latency": "1.36",
-    "throughput": "0.95"
+    "requests": "11756.0",
+    "latency": "0.01",
+    "throughput": "2.10"
+  },
+  {
+    "name": "apollo-server+pg",
+    "requests": "7826.0",
+    "latency": "0.06",
+    "throughput": "1.97"
+  },
+  {
+    "name": "apollo-server+prisma",
+    "requests": "7802.5",
+    "latency": "0.06",
+    "throughput": "1.96"
+  },
+  {
+    "name": "apollo-server-express+prisma+nexus",
+    "requests": "7680.0",
+    "latency": "0.06",
+    "throughput": "2.10"
+  },
+  {
+    "name": "apollo-server+prisma+nexus",
+    "requests": "7649.0",
+    "latency": "0.07",
+    "throughput": "1.93"
+  },
+  {
+    "name": "apollo-server-express+prisma",
+    "requests": "7441.0",
+    "latency": "0.07",
+    "throughput": "2.04"
+  },
+  {
+    "name": "apollo-server-express+pg",
+    "requests": "7431.0",
+    "latency": "0.07",
+    "throughput": "2.03"
+  },
+  {
+    "name": "express-graphql+prisma",
+    "requests": "6650.0",
+    "latency": "0.25",
+    "throughput": "1.88"
+  },
+  {
+    "name": "http+pg",
+    "requests": "N/A",
+    "latency": "N/A",
+    "throughput": "N/A"
   }
 ]

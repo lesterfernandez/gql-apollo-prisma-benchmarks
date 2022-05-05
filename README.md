@@ -33,23 +33,28 @@ Then run the following commands: (replace "yarn" with "npm run" where applicable
 
 # Benchmarks
 
-* __Machine:__ darwin arm64 | 8 vCPUs | 16.0GB Mem
-* __Node:__ `v16.13.0`
-* __Run:__ Wed May 04 2022 22:42:07 GMT-0400 (Eastern Daylight Time)
-* __Ran with the following options:__ connections: 10, pipelines: 1, duration: 5s
+* __Machine:__ linux x64 | 16 vCPUs | 47.0GB Mem
+* __Node:__ `v16.15.0`
+* __Run:__ Thu May 05 2022 15:10:23 GMT-0400 (Eastern Daylight Time)
+* __Ran with the following options:__ connections: 15, pipelines: 3, duration: 10s
 
 |                                    | Requests/s | Latency | Throughput/Mb |
 | :--                                | --:        | :-:     | --:           |
-| fastify+pg                         | 70240.0    | 0.01    | 16.68         |
-| fastify+prisma                     | 67843.2    | 0.01    | 16.11         |
-| apollo-server-fastify+prisma+nexus | 36528.0    | 0.01    | 8.26          |
-| apollo-server-fastify+prisma       | 35920.0    | 0.01    | 8.12          |
-| express+pg                         | 21902.4    | 0.04    | 8.58          |
-| express+prisma                     | 21816.0    | 0.04    | 8.55          |
-| apollo-server+prisma               | 16804.0    | 0.09    | 4.23          |
-| apollo-server+prisma+nexus         | 16728.8    | 0.09    | 4.21          |
-| apollo-server-express+prisma       | 16290.4    | 0.10    | 4.46          |
-| apollo-server-express+prisma+nexus | 16274.4    | 0.10    | 4.45          |
-| express-graphql+prisma             | 14255.2    | 0.15    | 4.04          |
-| http+pg                            | 6814.8     | 1.03    | 1.22          |
-| http+prisma                        | 5326.8     | 1.36    | 0.95          |
+| fastify+pg                         | 38992.0    | 0.01    | 9.26          |
+| fastify+prisma                     | 36952.0    | 0.01    | 8.78          |
+| apollo-server-koa+prisma           | 33704.0    | 0.51    | 5.75          |
+| apollo-server-fastify+prisma+nexus | 19748.0    | 0.01    | 4.46          |
+| apollo-server-fastify+prisma       | 19724.0    | 0.01    | 4.46          |
+| koa+pg                             | 18491.2    | 1.18    | 3.30          |
+| express+pg                         | 13054.0    | 0.02    | 5.12          |
+| express+prisma                     | 12310.0    | 0.02    | 4.82          |
+| koa+prisma                         | 11888.8    | 1.98    | 2.31          |
+| http+prisma                        | 11756.0    | 0.01    | 2.10          |
+| apollo-server+pg                   | 7826.0     | 0.06    | 1.97          |
+| apollo-server+prisma               | 7802.5     | 0.06    | 1.96          |
+| apollo-server-express+prisma+nexus | 7680.0     | 0.06    | 2.10          |
+| apollo-server+prisma+nexus         | 7649.0     | 0.07    | 1.93          |
+| apollo-server-express+prisma       | 7441.0     | 0.07    | 2.04          |
+| apollo-server-express+pg           | 7431.0     | 0.07    | 2.03          |
+| express-graphql+prisma             | 6650.0     | 0.25    | 1.88          |
+| http+pg                            | N/A        | N/A     | N/A           |
