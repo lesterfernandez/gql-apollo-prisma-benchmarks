@@ -1,6 +1,8 @@
 # What is this
 These are benchmarks results which are focused around measuring the relative performance of different GraphQL servers when using (or not using) Prisma (an ORM) and GraphQL Nexus.
 
+(inspired by: fastify & ben awad)
+
 # TL;DR
 GraphQL Nexus doesn't hurt performance 🤩
 fastify is fast 💨
