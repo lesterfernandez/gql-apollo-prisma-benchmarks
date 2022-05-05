@@ -20,7 +20,7 @@ const prisma = new PrismaClient();
               randomString: true,
             },
           });
-          return str?.randomString;
+          return str.randomString;
         },
       },
     },

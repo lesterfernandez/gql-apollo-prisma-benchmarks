@@ -1,16 +1,27 @@
-const { ApolloServer } = require("apollo-server-koa");
-const http = require("http");
-const Koa = require("koa");
 const {
   ApolloServerPluginDrainHttpServer,
   gql,
 } = require("apollo-server-core");
+const { ApolloServer } = require("apollo-server-fastify");
+const fastify = require("fastify");
 
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+function fastifyAppClosePlugin(app) {
+  return {
+    async serverWillStart() {
+      return {
+        async drainServer() {
+          await app.close();
+        },
+      };
+    },
+  };
+}
+
 (async () => {
-  const httpServer = http.createServer();
+  const app = fastify();
   const server = new ApolloServer({
     context: { prisma },
     typeDefs: gql`
@@ -26,18 +37,17 @@ const prisma = new PrismaClient();
               randomString: true,
             },
           });
-          return str?.randomString;
+          return str.randomString;
         },
       },
     },
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [
+      fastifyAppClosePlugin(app),
+      ApolloServerPluginDrainHttpServer({ httpServer: app.server }),
+    ],
   });
 
   await server.start();
-  const app = new Koa();
-  server.applyMiddleware({ app });
-  httpServer.on("request", app.callback());
-  await new Promise(resolve =>
-    httpServer.listen({ port: 3000 }, resolve)
-  );
+  app.register(server.createHandler({ path: "/" }));
+  await app.listen(3000);
 })();

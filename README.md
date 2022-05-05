@@ -1,4 +1,12 @@
+# What is this
+These are benchmarks results which are focused around measuring the relative performance of different GraphQL servers when using (or not using) Prisma (an ORM) and GraphQL Nexus.
+
 # TL;DR
+GraphQL Nexus doesn't hurt performance 🤩
+fastify is fast 💨
+prisma hurts performance, but not too much
+
+http seems to perform poorly, i'm not sure if my implementation is off because that is very unexpected
 
 # Usage
 
@@ -13,7 +21,7 @@ Then run the following commands: (replace "yarn" with "npm run" where applicable
 
 ## Run benchmarks
 1. make sure you ran ```yarn startDB``` or ```yarn initDB``` already
-1. ```yarn start bench```: run the benchmarks
+1. ```yarn start```: run the benchmarks
 1. ```yarn compare -t```: print the results to your terminal
 
 # Additional Commands
@@ -23,22 +31,23 @@ Then run the following commands: (replace "yarn" with "npm run" where applicable
 
 # Benchmarks
 
-* __Machine:__ linux x64 | 16 vCPUs | 47.0GB Mem
-* __Node:__ `v16.15.0`
-* __Run:__ Tue May 03 2022 17:07:32 GMT-0400 (Eastern Daylight Time)
-* __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
+* __Machine:__ darwin arm64 | 8 vCPUs | 16.0GB Mem
+* __Node:__ `v16.13.0`
+* __Run:__ Wed May 04 2022 22:42:07 GMT-0400 (Eastern Daylight Time)
+* __Ran with the following options:__ connections: 10, pipelines: 1, duration: 5s
 
-Koa kept dropping the database connections, so the results were inaccurate. I'm not sure if I did something wrong or if koa just sucks
-
-|                              | Requests/s | Latency | Throughput/Mb |
-| :--                          | --:        | :-:     | --:           |
-| http+pg                      | 21556.8    | 0.81    | 3.84          |
-| http+prisma                  | 13804.0    | 1.72    | 2.46          |
-| apollo-server+prisma         | 8264.4     | 3.17    | 2.08          |
-| apollo-server-express+prisma | 8160.8     | 3.16    | 2.23          |
-| express+pg                   | 8127.2     | 3.21    | 1.95          |
-| express-graphql+prisma       | 6668.4     | 3.93    | 1.89          |
-| express+prisma               | 6666.0     | 3.96    | 1.60          |
-| apollo-server-koa+prisma     | N/A | N/A | N/A |
-| koa+prisma                   | N/A | N/A | N/A |
-| koa+pg                       | N/A | N/A | N/A |
+|                                    | Requests/s | Latency | Throughput/Mb |
+| :--                                | --:        | :-:     | --:           |
+| fastify+pg                         | 70240.0    | 0.01    | 16.68         |
+| fastify+prisma                     | 67843.2    | 0.01    | 16.11         |
+| apollo-server-fastify+prisma+nexus | 36528.0    | 0.01    | 8.26          |
+| apollo-server-fastify+prisma       | 35920.0    | 0.01    | 8.12          |
+| express+pg                         | 21902.4    | 0.04    | 8.58          |
+| express+prisma                     | 21816.0    | 0.04    | 8.55          |
+| apollo-server+prisma               | 16804.0    | 0.09    | 4.23          |
+| apollo-server+prisma+nexus         | 16728.8    | 0.09    | 4.21          |
+| apollo-server-express+prisma       | 16290.4    | 0.10    | 4.46          |
+| apollo-server-express+prisma+nexus | 16274.4    | 0.10    | 4.45          |
+| express-graphql+prisma             | 14255.2    | 0.15    | 4.04          |
+| http+pg                            | 6814.8     | 1.03    | 1.22          |
+| http+prisma                        | 5326.8     | 1.36    | 0.95          |

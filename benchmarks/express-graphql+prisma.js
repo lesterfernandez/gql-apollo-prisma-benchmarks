@@ -12,7 +12,7 @@ const schema = buildSchema(`
 `);
 
 const root = {
-  hello: async (_, __, { prisma }) => {
+  hello: async (_args, { prisma }) => {
     const str = await prisma.data.findFirst({
       select: {
         randomString: true,
@@ -30,6 +30,7 @@ app.use(
     rootValue: root,
     graphiql: true,
     context: { prisma },
+    graphiql: true,
   })
 );
 app.listen(3000);
