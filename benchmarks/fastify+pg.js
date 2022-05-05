@@ -1,4 +1,5 @@
 const fastify = require("fastify")();
+const pool = require("../lib/pg");
 
 const schema = {
   schema: {
@@ -15,17 +16,9 @@ const schema = {
   },
 };
 
-const { Client } = require("pg");
-
-const client = new Client({
-  connectionString:
-    "postgresql://postgres:postgres@localhost:5001/prisma",
-});
-
 fastify.post("/", schema, async (_, reply) => {
-  const str = (
-    await client.query('SELECT "randomString" from "Data"')
-  ).rows[0].randomString;
+  const str = (await pool.query('SELECT "randomString" from "Data"'))
+    .rows[0].randomString;
   reply.send({ hello: str });
 });
 

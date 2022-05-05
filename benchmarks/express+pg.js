@@ -1,17 +1,10 @@
 const express = require("express");
 const app = express();
-
-const { Client } = require("pg");
-
-const client = new Client({
-  connectionString:
-    "postgresql://postgres:postgres@localhost:5001/prisma",
-});
+const pool = require("../lib/pg");
 
 app.post("/", async (_, res) => {
-  const str = (
-    await client.query('SELECT "randomString" from "Data"')
-  ).rows[0].randomString;
+  const str = (await pool.query('SELECT "randomString" from "Data"'))
+    .rows[0].randomString;
   res.send({ hello: str });
 });
 

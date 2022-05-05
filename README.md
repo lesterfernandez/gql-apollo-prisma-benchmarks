@@ -4,11 +4,9 @@ These are benchmarks results which are focused around measuring the relative per
 (inspired by: fastify & ben awad)
 
 # TL;DR
-GraphQL Nexus doesn't hurt performance 🤩
+GraphQL Nexus doesn't affect performance 🤩
 fastify is fast 💨
-prisma hurts performance, but not too much
-
-http seems to perform poorly, i'm not sure if my implementation is off because that is very unexpected
+prisma slightly hurts performance
 
 # Usage
 
@@ -33,28 +31,25 @@ Then run the following commands: (replace "yarn" with "npm run" where applicable
 
 # Benchmarks
 
-* __Machine:__ linux x64 | 16 vCPUs | 47.0GB Mem
-* __Node:__ `v16.15.0`
-* __Run:__ Thu May 05 2022 15:10:23 GMT-0400 (Eastern Daylight Time)
-* __Ran with the following options:__ connections: 15, pipelines: 3, duration: 10s
+* __Machine:__ darwin arm64 | 8 vCPUs | 16.0GB Mem
+* __Node:__ `v16.13.0`
+* __Run:__ Thu May 05 2022 17:12:35 GMT-0400 (Eastern Daylight Time)
+* __Ran with the following options:__ connections: 25, pipelines: 1, duration: 10s
 
 |                                    | Requests/s | Latency | Throughput/Mb |
 | :--                                | --:        | :-:     | --:           |
-| fastify+pg                         | 38992.0    | 0.01    | 9.26          |
-| fastify+prisma                     | 36952.0    | 0.01    | 8.78          |
-| apollo-server-koa+prisma           | 33704.0    | 0.51    | 5.75          |
-| apollo-server-fastify+prisma+nexus | 19748.0    | 0.01    | 4.46          |
-| apollo-server-fastify+prisma       | 19724.0    | 0.01    | 4.46          |
-| koa+pg                             | 18491.2    | 1.18    | 3.30          |
-| express+pg                         | 13054.0    | 0.02    | 5.12          |
-| express+prisma                     | 12310.0    | 0.02    | 4.82          |
-| koa+prisma                         | 11888.8    | 1.98    | 2.31          |
-| http+prisma                        | 11756.0    | 0.01    | 2.10          |
-| apollo-server+pg                   | 7826.0     | 0.06    | 1.97          |
-| apollo-server+prisma               | 7802.5     | 0.06    | 1.96          |
-| apollo-server-express+prisma+nexus | 7680.0     | 0.06    | 2.10          |
-| apollo-server+prisma+nexus         | 7649.0     | 0.07    | 1.93          |
-| apollo-server-express+prisma       | 7441.0     | 0.07    | 2.04          |
-| apollo-server-express+pg           | 7431.0     | 0.07    | 2.03          |
-| express-graphql+prisma             | 6650.0     | 0.25    | 1.88          |
-| http+pg                            | N/A        | N/A     | N/A           |
+| fastify+pg                         | 4240.1     | 5.40    | 0.76          |
+| http+pg                            | 4234.8     | 5.41    | 0.76          |
+| fastify+prisma                     | 3958.5     | 5.82    | 0.71          |
+| http+prisma                        | 3955.4     | 5.82    | 0.71          |
+| express+pg                         | 3935.0     | 5.85    | 0.95          |
+| express+prisma                     | 3919.2     | 5.88    | 0.94          |
+| apollo-server+pg                   | 3856.6     | 5.99    | 0.99          |
+| apollo-server-fastify+prisma+nexus | 3828.3     | 6.03    | 0.83          |
+| apollo-server-express+pg           | 3781.7     | 6.11    | 1.05          |
+| apollo-server-fastify+prisma       | 3739.7     | 6.19    | 0.81          |
+| apollo-server+prisma+nexus         | 3724.6     | 6.21    | 0.96          |
+| express-graphql+prisma             | 3696.6     | 6.26    | 0.92          |
+| apollo-server-express+prisma       | 3675.0     | 6.31    | 1.03          |
+| apollo-server-express+prisma+nexus | 3638.6     | 6.37    | 1.02          |
+| apollo-server+prisma               | 3615.4     | 6.42    | 0.93          |

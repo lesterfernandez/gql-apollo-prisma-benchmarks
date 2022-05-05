@@ -53,7 +53,7 @@ function updateReadme() {
 * __Machine:__ ${machineInfo}
 * __Node:__ \`${process.version}\`
 * __Run:__ ${new Date()}
-* __Ran with the following options:__ connections: 15, pipelines: 3, duration: 10s
+* __Ran with the following options:__ connections: 25, pipelines: 1, duration: 10s
 
 ${compareResults(true)}
 `;
